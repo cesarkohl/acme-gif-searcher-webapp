@@ -7,6 +7,8 @@ import PageRegister from '../components/PageRegister'
 import PagePostCreate from "../components/PagePostCreate"
 import PagePostIndex from "../components/PagePostIndex"
 import PagePostEdit from "../components/PagePostEdit"
+import PageSearchIndex from "../components/PageSearchIndex"
+import PageSearchLog from "../components/PageSearchLog"
 
 Vue.use(Router);
 
@@ -20,6 +22,9 @@ export const router = new Router({
     { path: '/posts', component: PagePostIndex, name: 'post-index' },
     { path: '/posts/create', component: PagePostCreate, name: 'post-create' },
     { path: '/posts/edit/:id', component: PagePostEdit, name: 'post-edit' },
+
+    { path: '/search', component: PageSearchIndex, name: 'search-index' },
+    { path: '/search/log', component: PageSearchLog, name: 'search-log' },
 
     // otherwise redirect to home
     { path: '*', redirect: '/' }

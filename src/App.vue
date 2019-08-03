@@ -10,6 +10,12 @@
                         <router-link :to="{name: 'post-index'}" class="nav-link">Posts</router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link :to="{name: 'search-index'}" class="nav-link">Search</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link :to="{name: 'search-log'}" class="nav-link">Log</router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link :to="{name: 'login'}" class="nav-link">Logout</router-link>
                     </li>
                 </ul>
