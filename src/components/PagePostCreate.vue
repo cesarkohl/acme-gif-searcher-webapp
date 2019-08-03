@@ -27,6 +27,7 @@
 
 <script>
     import axios from 'axios'
+    import {globals} from '../_helpers'
     export default {
         data: function (){
             return {
@@ -35,9 +36,10 @@
         },
         methods: {
             addPost(){
-                axios.post(this.$backendRoot + 'post', this.post).then((response) => {
-                    this.$router.push({name: 'post-index'});
-                });
+                axios.post(globals().backendRoot + 'post', this.post, { headers: globals().authenticationHeader })
+                    .then((response) => {
+                        this.$router.push({name: 'post-index'});
+                    });
             },
         }
     }

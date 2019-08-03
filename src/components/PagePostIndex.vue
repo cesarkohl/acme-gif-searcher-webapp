@@ -32,6 +32,7 @@
 
 <script>
     import axios from 'axios'
+    import {globals} from '../_helpers'
     export default {
         data() {
             return {
@@ -39,16 +40,19 @@
             }
         },
         created() {
-            axios.get(this.$backendRoot + 'post').then(response => {
-                this.posts = response.data.data;
-            });
+            axios
+                .get(globals().backendRoot + 'post', { headers: globals().authenticationHeader })
+                .then(response => {
+                    this.posts = response.data.data;
+                });
         },
         methods: {
             deletePost(id)
             {
-                axios.delete(this.$backendRoot + `post/${id}`).then(response => {
-                    this.posts.splice(this.posts.indexOf(id), 1);
-                });
+                axios.delete(globals().backendRoot + `post/${id}`, { headers: globals().authenticationHeader })
+                    .then(response => {
+                        this.posts.splice(this.posts.indexOf(id), 1);
+                    });
             }
         }
     }

@@ -1,5 +1,5 @@
 import config from 'config';
-import { authHeader } from '../_helpers';
+import { authHeader, globals } from '../_helpers';
 import axios from 'axios';
 
 export const userService = {
@@ -11,10 +11,8 @@ export const userService = {
     delete: _delete
 };
 
-const backendRoot = 'http://127.0.0.1:8000';
-
 function login(email, password) {
-    return axios.post(backendRoot + '/api/login', { email, password })
+    return axios.post(globals().backendRoot + 'login', { email, password })
         .then(user => {
             if (user.data.access_token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -33,7 +31,7 @@ function logout() {
 }
 
 function register(user) {
-    return axios.post(backendRoot + '/api/signup', {
+    return axios.post(globals().backendRoot + 'signup', {
             'name': user.name,
             'email': user.email,
             'password': user.password,

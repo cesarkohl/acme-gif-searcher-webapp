@@ -27,6 +27,7 @@
 
 <script>
     import axios from 'axios'
+    import {globals} from '../_helpers'
     export default {
         data() {
             return {
@@ -34,15 +35,17 @@
             }
         },
         created() {
-            axios.get(this.$backendRoot + `post/${this.$route.params.id}`).then((response) => {
-                this.post = response.data;
-            });
+            axios.get(globals().backendRoot + `post/${this.$route.params.id}`, { headers: globals().authenticationHeader })
+                .then((response) => {
+                    this.post = response.data;
+                });
         },
         methods: {
             updatePost() {
-                axios.put(this.$backendRoot + `post/${this.$route.params.id}`, this.post).then((response) => {
-                    this.$router.push({name: 'post-index'});
-                });
+                axios.put(globals().backendRoot + `post/${this.$route.params.id}`, this.post, { headers: globals().authenticationHeader })
+                    .then((response) => {
+                        this.$router.push({name: 'post-index'});
+                    });
             }
         }
     }
