@@ -35,8 +35,7 @@
         },
         methods: {
             addPost(){
-                let uri = this.$backendRoot + 'post/create';
-                axios.post(uri, this.post).then((response) => {
+                axios.post(this.$backendRoot + 'post', this.post).then((response) => {
                     this.$router.push({name: 'post-index'});
                 });
             },

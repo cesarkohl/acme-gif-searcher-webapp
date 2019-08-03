@@ -39,16 +39,14 @@
             }
         },
         created() {
-            let uri = this.$backendRoot + 'posts';
-            axios.get(uri).then(response => {
+            axios.get(this.$backendRoot + 'post').then(response => {
                 this.posts = response.data.data;
             });
         },
         methods: {
             deletePost(id)
             {
-                let uri = this.$backendRoot + `post/delete/${id}`;
-                axios.delete(uri).then(response => {
+                axios.delete(this.$backendRoot + `post/${id}`).then(response => {
                     this.posts.splice(this.posts.indexOf(id), 1);
                 });
             }

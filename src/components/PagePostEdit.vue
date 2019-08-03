@@ -34,15 +34,13 @@
             }
         },
         created() {
-            let uri = this.$backendRoot + `post/edit/${this.$route.params.id}`;
-            axios.get(uri).then((response) => {
+            axios.get(this.$backendRoot + `post/${this.$route.params.id}`).then((response) => {
                 this.post = response.data;
             });
         },
         methods: {
             updatePost() {
-                let uri = this.$backendRoot + `post/update/${this.$route.params.id}`;
-                axios.post(uri, this.post).then((response) => {
+                axios.put(this.$backendRoot + `post/${this.$route.params.id}`, this.post).then((response) => {
                     this.$router.push({name: 'post-index'});
                 });
             }
