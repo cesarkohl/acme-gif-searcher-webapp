@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div v-for="result in results" :key="result.preview" class="ml-3 mb-3 gif-card rounded">
+            <div v-for="result in results" :key="result.url" class="ml-3 mb-3 gif-card rounded">
                 <img :src="result.url" height="168" alt="" class="rounded mx-auto d-block">
                 <div class="btn-group d-flex" role="group">
                     <button class="btn btn-primary w-100" @click.prevent="downloadItem(result.url)" :href="result.url">
