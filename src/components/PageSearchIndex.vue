@@ -15,16 +15,16 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div v-for="result in results" :key="result" class="ml-3 mb-3 gif-card rounded">
-                <img :src="result" height="168" alt="" class="rounded mx-auto d-block">
+            <div v-for="result in results" :key="result.preview" class="ml-3 mb-3 gif-card rounded">
+                <img :src="result.url" height="168" alt="" class="rounded mx-auto d-block">
                 <div class="btn-group d-flex" role="group">
-                    <button class="btn btn-primary w-100" @click.prevent="downloadItem(result)" :href="result">
+                    <button class="btn btn-primary w-100" @click.prevent="downloadItem(result.url)" :href="result.url">
                         <font-awesome-icon icon="download" />
                     </button>
-                    <button class="btn btn-primary w-100" @click.prevent="copyLink(result)">
+                    <button class="btn btn-primary w-100" @click.prevent="copyLink(result.url)">
                         <font-awesome-icon icon="copy" />
                     </button>
-                    <button class="btn btn-primary w-100" @click.prevent="favoriteAdd(result)">
+                    <button class="btn btn-primary w-100" @click.prevent="favoriteAdd(result.url)">
                         <font-awesome-icon icon="star" />
                     </button>
                 </div>
