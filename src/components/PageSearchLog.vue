@@ -1,21 +1,18 @@
 <template>
     <div>
-        <h1>Log</h1>
-
-        <table class="table table-hover">
-            <thead>
-                    <tr>
-                        <th>Keyword</th>
-                        <th>Date</th>
-                    </tr>
-            </thead>
-            <tbody>
-                <tr v-for="log in logs" :key="log.keyword">
-                    <td>{{ log.keyword }}</td>
-                    <td>{{ log.created_at }}</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row mt-5">
+            <div class="col">
+                <h1 class="black"><font-awesome-icon icon="list" class="mr-3 color-blue" />Log</h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <p>You searched for:</p>
+                <ul v-for="log in logs" :key="log.keyword" class="row">
+                    <li class="col"><strong>{{ log.keyword }}</strong> on {{ log.created_at | moment("dddd, MMMM Do YYYY HH:mm:ss") }}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
 

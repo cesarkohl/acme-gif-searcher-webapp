@@ -1,27 +1,35 @@
 <template>
     <div>
-        <h1>Search</h1>
-        <div class="row">
-            <div class="col">
-                <form @submit.prevent="searchIndex">
-                    <input type="text" v-model="keyword" placeholder="Type the word">
-                    <button class="btn btn-primary">Search</button>
+        <div class="row mt-5">
+            <div class="col col-lg-6">
+                <h1 class="black"><font-awesome-icon icon="search" class="mr-3 color-green" />Search GIFs</h1>
+                <h6 class="float-left">Powered by <a href="https://www.tenor.com" target="_blank">Tenor</a></h6>
+            </div>
+            <div class="col col-lg-6">
+                <form class="form-inline float-right" @submit.prevent="searchIndex">
+                    <div class="form-group mx-auto mb-2">
+                        <input type="text" class="form-control" v-model="keyword" placeholder="Search for ...">
+                    </div>
+                    <button class="btn btn-primary mb-2"><font-awesome-icon icon="search" /></button>
                 </form>
             </div>
         </div>
-
-        <table class="table table-hover">
-            <tbody>
-                <tr v-for="result in results" :key="result">
-                    <td>
-                        <img :src="result" alt="">
-                        <a @click.prevent="downloadItem(result)" :href="result">Download</a>
-                        <button @click.prevent="copyLink(result)">Copy Link</button>
-                        <button @click.prevent="favoriteAdd(result)">Favorite</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row mt-5">
+            <div v-for="result in results" :key="result" class="ml-3 mb-3 gif-card rounded">
+                <img :src="result" height="168" alt="" class="rounded mx-auto d-block">
+                <div class="btn-group d-flex" role="group">
+                    <button class="btn btn-primary w-100" @click.prevent="downloadItem(result)" :href="result">
+                        <font-awesome-icon icon="download" />
+                    </button>
+                    <button class="btn btn-primary w-100" @click.prevent="copyLink(result)">
+                        <font-awesome-icon icon="copy" />
+                    </button>
+                    <button class="btn btn-primary w-100" @click.prevent="favoriteAdd(result)">
+                        <font-awesome-icon icon="star" />
+                    </button>
+                </div>
+            </div>
+        </div>
 
     </div>
 </template>
@@ -63,7 +71,7 @@
                     .then(response => {
                         var uri_code = response.data.uri_code
                         this.$copyText(uri_code).then(function() {
-                            alert('Copied')
+                            alert('Copied to clipboard!')
                         })
                     });
             },
@@ -72,7 +80,7 @@
                 axios.post(globals().backendRoot + `favorite`, { 'uri': url }, { headers: globals().authenticationHeader })
                     .then(response => {
                         console.log(response.data)
-                        alert('Favorite!')
+                        alert('Favorited!')
                     });
             },
         }

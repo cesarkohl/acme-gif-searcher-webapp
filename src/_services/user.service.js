@@ -28,7 +28,10 @@ function login(email, password) {
 
 function logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('user');
+    if (localStorage.getItem('user')) {
+        localStorage.removeItem('user')
+        location.replace('/')
+    }
 }
 
 function register(user) {
