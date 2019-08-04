@@ -16,6 +16,9 @@
                         <router-link :to="{name: 'search-log'}" class="nav-link">Log</router-link>
                     </li>
                     <li class="nav-item">
+                        <router-link :to="{name: 'favorite-index'}" class="nav-link">Favorites</router-link>
+                    </li>
+                    <li class="nav-item">
                         <router-link :to="{name: 'login'}" class="nav-link">Logout</router-link>
                     </li>
                 </ul>

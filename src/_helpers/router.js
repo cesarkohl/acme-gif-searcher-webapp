@@ -9,6 +9,7 @@ import PagePostIndex from "../components/PagePostIndex"
 import PagePostEdit from "../components/PagePostEdit"
 import PageSearchIndex from "../components/PageSearchIndex"
 import PageSearchLog from "../components/PageSearchLog"
+import PageFavoriteIndex from "../components/PageFavoriteIndex"
 
 Vue.use(Router);
 
@@ -25,6 +26,8 @@ export const router = new Router({
 
     { path: '/search', component: PageSearchIndex, name: 'search-index' },
     { path: '/search/log', component: PageSearchLog, name: 'search-log' },
+
+    { path: '/favorite', component: PageFavoriteIndex, name: 'favorite-index' },
 
     // otherwise redirect to home
     { path: '*', redirect: '/' }

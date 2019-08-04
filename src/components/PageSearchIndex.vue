@@ -17,6 +17,7 @@
                         <img :src="result" alt="">
                         <a @click.prevent="downloadItem(result)" :href="result">Download</a>
                         <button @click.prevent="copyLink(result)">Copy Link</button>
+                        <button @click.prevent="favoriteAdd(result)">Favorite</button>
                     </td>
                 </tr>
             </tbody>
@@ -64,6 +65,14 @@
                         this.$copyText(uri_code).then(function() {
                             alert('Copied')
                         })
+                    });
+            },
+            favoriteAdd(url)
+            {
+                axios.post(globals().backendRoot + `favorite`, { 'uri': url }, { headers: globals().authenticationHeader })
+                    .then(response => {
+                        console.log(response.data)
+                        alert('Favorite!')
                     });
             },
         }
