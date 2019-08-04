@@ -49,7 +49,7 @@
                         let blob = new Blob([data], { type: 'image/gif' })
                         let link = document.createElement('a')
                         link.href = window.URL.createObjectURL(blob)
-                        link.download = 'image.gif'
+                        link.download = this.keyword
                         link.click()
                             .catch(error => {
                                 console.error(error)
