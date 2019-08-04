@@ -13,7 +13,7 @@ import PageSearchLog from "../components/PageSearchLog"
 Vue.use(Router);
 
 export const router = new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     { path: '/', component: PageHome, name: 'home' },
     { path: '/login', component: PageLogin, name: 'login' },
@@ -21,7 +21,7 @@ export const router = new Router({
 
     { path: '/posts', component: PagePostIndex, name: 'post-index' },
     { path: '/posts/create', component: PagePostCreate, name: 'post-create' },
-    { path: '/posts/edit/:id', component: PagePostEdit, name: 'post-edit' },
+    { path: '/posts/:id/edit', component: PagePostEdit, name: 'post-edit' },
 
     { path: '/search', component: PageSearchIndex, name: 'search-index' },
     { path: '/search/log', component: PageSearchLog, name: 'search-log' },

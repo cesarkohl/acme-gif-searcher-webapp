@@ -16,11 +16,12 @@
                     <td>
                         <img :src="result" alt="">
                         <a @click.prevent="downloadItem(result)" :href="result">Download</a>
-                        <button v-clipboard="result">{{result}}</button>
+                        <button @click.prevent="copyLink(result)">Copy Link</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+
     </div>
 </template>
 
@@ -30,7 +31,7 @@
     export default {
         data() {
             return {
-                keyword: 'test',
+                keyword: '',
                 results: []
             }
         },
@@ -54,7 +55,17 @@
                                 console.error(error)
                             })
                     })
-            }
+            },
+            copyLink(url)
+            {
+                axios.post(globals().backendRoot + `shorturl`, { 'uri': url }, { headers: globals().authenticationHeader })
+                    .then(response => {
+                        var uri_code = response.data.uri_code
+                        this.$copyText(uri_code).then(function() {
+                            alert('Copied')
+                        })
+                    });
+            },
         }
     }
 </script>

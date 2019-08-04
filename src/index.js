@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import VeeValidate from 'vee-validate'
-import VueClipboards from 'vue-clipboards'
+import VueClipboard from 'vue-clipboard2'
 
 import { store } from './_store'
 import { router } from './_helpers'
 import App from './App'
 
 Vue.use(VeeValidate)
-Vue.use(VueClipboards)
+Vue.use(VueClipboard)
+
+console.log(JSON.parse(localStorage.getItem('user')));
 
 new Vue({
     el: '#app',
