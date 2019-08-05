@@ -5,7 +5,7 @@
                 <h1 class="black">Hi, {{account.user.name}} <font-awesome-icon icon="glass-cheers" class="ml-2 mr-3 color-orange" />!</h1>
                 <p class="mt-4">I'm Cesar, the developer of this application. The stack used here is:</p>
                 <ul>
-                    <li><strong>Front-end:</strong> Vue JS 3.9 / Bootstrap 4 / jQuery / Popper JS / CSS 3 / HTML 5</li>
+                    <li><strong>Front-end:</strong> Vue JS 2.6 / Bootstrap 4 / jQuery / Popper JS / CSS 3 / HTML 5</li>
                     <li>
                         <strong>Back-end:</strong></li>
                         <ul>
