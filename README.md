@@ -1,6 +1,6 @@
 Acme Gif Searcher
 =
-To help you I created an article to understand the details of the application: 
+To help you I created an article to understand the details of the application:
 
 https://medium.com/@cesarkohl/vue-js-laravel-restful-api-application-cbd2af3a888c
 -
@@ -31,12 +31,12 @@ git clone https://github.com/cesarkohl/acme-gif-searcher-backend.git
 cd acme-gif-searcher-backend
 npm install
 composer install
-php artisan migrate
 php artisan serve
 ```
 
 If you change the .env DB_{} variables the following command is mandatory after database installation and configuration:
 ```
+php artisan migrate
 php artisan passport:install
 ```
 
