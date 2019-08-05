@@ -1,14 +1,10 @@
-import config from 'config';
 import { authHeader, globals } from '../_helpers';
 import axios from 'axios';
 
 export const userService = {
-    login,
-    logout,
-    register,
-    getById,
-    update,
-    delete: _delete
+  login,
+  logout,
+  register
 };
 
 function login(email, password) {
@@ -51,35 +47,6 @@ function register(user) {
         .catch(function (error) {
             return Promise.reject(error.response.data.errors.email[0]);
         });
-}
-
-function getById(id) {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-    return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
-}
-
-function update(user) {
-    const requestOptions = {
-        method: 'PUT',
-        headers: { ...authHeader(), 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
-    };
-
-    return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse);
-}
-
-// prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) {
-    const requestOptions = {
-        method: 'DELETE',
-        headers: authHeader()
-    };
-
-    return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

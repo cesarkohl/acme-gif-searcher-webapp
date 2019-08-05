@@ -7,6 +7,6 @@ export function globals() {
             'Authorization': 'Bearer ' + accessToken,
             'Content-Type': 'application/json'
         },
-        backendRoot: 'http://127.0.0.1:8000/api/'
+        backendRoot: 'http://acme-gif-searcher.sg8iabcwyc.sa-east-1.elasticbeanstalk.com/api/'
     };
 }

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import App from "./App";
 import VeeValidate from 'vee-validate'
 import VueClipboard from 'vue-clipboard2'
 import VueMoment from 'vue-moment'
@@ -12,17 +13,16 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 import { store } from './_store'
 import { router } from './_helpers'
-import App from './App'
 
 Vue.use(VeeValidate)
 Vue.use(VueClipboard)
 Vue.use(VueMoment)
 
-console.log(JSON.parse(localStorage.getItem('user')));
+Vue.config.productionTip = false;
 
 new Vue({
-    el: '#app',
-    router,
-    store,
-    render: h => h(App)
+  el: '#app',
+  router,
+  store,
+  render: h => h(App)
 });
