@@ -1,6 +1,6 @@
 Acme Gif Searcher
 =
-To help you I created the article to understand the details the application: 
+To help you I created an article to understand the details the application: 
 
 https://medium.com/@cesarkohl/vue-js-laravel-restful-api-application-cbd2af3a888c
 -
