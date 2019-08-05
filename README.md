@@ -4,12 +4,12 @@ The application is made of two parts: webapp (Vue) and backend (Laravel API).
 
 Webapp live demo: http://acme-gif-searcher-webapp.sg8iabcwyc.sa-east-1.elasticbeanstalk.com/
 
-Live API demo: http://acme-gif-searcher.sg8iabcwyc.sa-east-1.elasticbeanstalk.com/api/
-
-Video link with application explanation: (soon)
+API live demo: http://acme-gif-searcher.sg8iabcwyc.sa-east-1.elasticbeanstalk.com/api/
 
 Webapp
 -
+This is my first project with Vue.JS.
+
 ```
 git clone https://github.com/cesarkohl/acme-gif-searcher-webapp.git
 cd acme-gif-searcher-webapp
@@ -19,6 +19,8 @@ npm run serve
 
 Backend
 -
+I've been working with PHP since 2010 and done my first project using Laravel in 2016.
+
 ```
 git clone https://github.com/cesarkohl/acme-gif-searcher-backend.git
 cd acme-gif-searcher-backend
